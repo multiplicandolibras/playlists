@@ -33,10 +33,8 @@ export class PersistenceService extends Dexie {
   }
 
   async deleteProfile(profileId: number): Promise<void> {
-    await this.transaction('rw', this.profiles, this.progress, async () => {
-      await this.progress.where({ profileId }).delete();
-      await this.profiles.delete(profileId);
-    });
+    await this.progress.where({ profileId }).delete();
+    await this.profiles.delete(profileId);
   }
 
   async getWatchedVideos(profileId: number): Promise<string[]> {
