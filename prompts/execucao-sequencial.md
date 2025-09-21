@@ -99,6 +99,10 @@ Este arquivo controla a execução manual e sequencial das partes do plano. Cada
         - Template e estilos adicionados.
         - `src/app/playlists/video/video.component.spec.ts` criado e testes passaram.
 - [ ] Parte 4 — Roteamento (`@./parte-4-roteamento.md`)
+    - Status: em-execucao
+    - Iniciado-por: agent/runner-1
+    - Iniciado-em: 2025-09-21T19:50:00Z
+    - Autorizado-por: agent/automated-runner
 - [ ] Parte 5 — Integração, Migrações e Recomendações (`@./parte-5-integracao-migracoes-recomendacoes.md`)
 
 Observações de uso
