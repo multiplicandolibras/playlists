@@ -28,7 +28,19 @@ Este arquivo controla a execução manual e sequencial das partes do plano. Cada
         - `src/app/core/models/progress.model.ts` criado.
         - `src/app/core/services/persistence.service.ts` criado e implementado.
 
-- [ ] Parte 2.2 — DataService (HttpClient) (`@./parte-2-2-data-service.md`)
+- [x] Parte 2.2 — DataService (HttpClient) (`@./parte-2-2-data-service.md`)
+    - Status: concluido
+    - Iniciado-por: agent/runner-1
+    - Iniciado-em: 2025-09-21T18:40:00Z
+    - Autorizado-por: agent/automated-runner
+    - Concluido-por: agent/runner-1
+    - Concluido-em: 2025-09-21T18:45:00Z
+    - Notas-de-entrega:
+        - `src/app/core/models/playlist.model.ts` criado.
+        - `src/app/core/services/data.service.ts` criado e implementado.
+        - `src/app/core/services/data.service.spec.ts` criado e implementado.
+        - `src/app/app.config.ts` atualizado com `provideHttpClient()`.
+
 - [ ] Parte 2.3 — ProfileService (estado) (`@./parte-2-3-profile-service.md`)
 - [ ] Parte 3.1 — ProfileManagerComponent (`@./parte-3-1-profile-manager.md`)
 - [ ] Parte 3.2 — PlaylistListComponent (`@./parte-3-2-playlist-list.md`)
