@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, CommonModule],
-  template: `\n    <main>\n      <h1>Hello, {{ title() }}</h1>\n      <router-outlet></router-outlet>\n    </main>\n  `,
+  templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
 export class App {
