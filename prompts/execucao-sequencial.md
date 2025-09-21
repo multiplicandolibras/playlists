@@ -77,6 +77,10 @@ Este arquivo controla a execução manual e sequencial das partes do plano. Cada
         - Template e estilos adicionados.
         - `src/app/playlists/playlist-list/playlist-list.component.spec.ts` criado e testes passaram.
 - [ ] Parte 3.3 — PlaylistDetailComponent (`@./parte-3-3-playlist-detail.md`)
+    - Status: em-execucao
+    - Iniciado-por: agent/runner-1
+    - Iniciado-em: 2025-09-21T19:20:00Z
+    - Autorizado-por: agent/automated-runner
 - [ ] Parte 3.4 — VideoComponent (`@./parte-3-4-video.md`)
 - [ ] Parte 4 — Roteamento (`@./parte-4-roteamento.md`)
 - [ ] Parte 5 — Integração, Migrações e Recomendações (`@./parte-5-integracao-migracoes-recomendacoes.md`)

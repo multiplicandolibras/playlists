@@ -1,0 +1,22 @@
+<div class="playlist-detail">
+  <ng-container *ngIf="loading">Carregando playlist...</ng-container>
+
+  <ng-container *ngIf="!loading && !playlist">
+    <p>Playlist não encontrada.</p>
+  </ng-container>
+
+  <ng-container *ngIf="playlist">
+    <h2>{{ playlist.title }}</h2>
+    <div *ngFor="let module of playlist.modules; trackBy: trackByModule">
+      <h3>{{ module.title }}</h3>
+      <ul>
+        <li *ngFor="let lesson of module.lessons; trackBy: trackByLesson">
+          <label>
+            <input type="checkbox" [checked]="isWatched(lesson.id)" (change)="toggleWatched(lesson.id)" />
+            {{ lesson.title }}
+          </label>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+</div>
