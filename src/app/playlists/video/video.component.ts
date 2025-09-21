@@ -1,5 +1,6 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../core/services/data.service';
 import { PersistenceService } from '../../core/services/persistence.service';
@@ -9,7 +10,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-video',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, YouTubePlayerModule],
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.scss']
 })

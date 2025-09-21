@@ -53,6 +53,15 @@ export class PlaylistDetailComponent implements OnInit, OnDestroy {
     return this.watched.includes(lessonId);
   }
 
+  // trackBy functions for ngFor performance
+  trackByModule(index: number, module: { id: string }): string {
+    return module?.id;
+  }
+
+  trackByLesson(index: number, lesson: { id: string }): string {
+    return lesson?.id;
+  }
+
   async toggleWatched(lessonId: string): Promise<void> {
     // Toggle watched state for profileId 1 (see note above)
     const profileId = 1;
