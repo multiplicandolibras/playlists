@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -19,39 +19,40 @@ export class PlaylistDetailComponent implements OnInit, OnDestroy {
   private dataService = inject(DataService);
   private persistence = inject(PersistenceService);
 
-  playlist: Playlist | undefined;
-  watched: string[] = [];
-  loading = true;
+  // signals
+  playlist = signal<Playlist | undefined>(undefined);
+  watched = signal<string[]>([]);
+  loading = signal(true);
 
   private subs = new Subscription();
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id') || undefined;
     if (!id) {
-      this.loading = false;
+      this.loading.set(false);
       return;
     }
 
     this.subs.add(
       this.dataService.getPlaylistById(id).subscribe(pl => {
-        this.playlist = pl;
+        this.playlist.set(pl);
         if (pl) {
           // load watched videos for current profile if available
           // note: ProfileService not injected here to keep example minimal — persistence expects profileId elsewhere
           // We'll assume single profile with id 1 for demo/tests; callers should wire profile id properly in real app
           from(this.persistence.getWatchedVideos(1)).subscribe(ids => {
-            this.watched = ids;
-            this.loading = false;
+            this.watched.set(ids);
+            this.loading.set(false);
           });
         } else {
-          this.loading = false;
+          this.loading.set(false);
         }
       })
     );
   }
 
   isWatched(lessonId: string): boolean {
-    return this.watched.includes(lessonId);
+    return this.watched().includes(lessonId);
   }
 
   // trackBy functions for ngFor performance
@@ -68,10 +69,10 @@ export class PlaylistDetailComponent implements OnInit, OnDestroy {
     const profileId = 1;
     if (this.isWatched(lessonId)) {
       await this.persistence.markAsUnwatched(profileId, lessonId);
-      this.watched = this.watched.filter(id => id !== lessonId);
+      this.watched.update(curr => curr.filter(id => id !== lessonId));
     } else {
       await this.persistence.markAsWatched(profileId, lessonId);
-      this.watched = [...this.watched, lessonId];
+      this.watched.update(curr => [...curr, lessonId]);
     }
   }
 

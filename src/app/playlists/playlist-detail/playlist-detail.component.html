@@ -1,23 +1,25 @@
 <div class="playlist-detail">
-  <ng-container *ngIf="loading">Carregando playlist...</ng-container>
+  @if (loading()) { Carregando playlist... }
 
-  <ng-container *ngIf="!loading && !playlist">
+  @if (!loading() && !playlist()) {
     <p>Playlist não encontrada.</p>
-  </ng-container>
+  }
 
-  <ng-container *ngIf="playlist">
-    <h2>{{ playlist.title }}</h2>
-    <div *ngFor="let module of playlist.modules; trackBy: trackByModule">
+  @if (playlist()) {
+  <h2>{{ playlist()?.title }}</h2>
+  @for (module of playlist()?.modules; track module.title) {
       <h3>{{ module.title }}</h3>
       <ul>
-        <li *ngFor="let lesson of module.lessons; trackBy: trackByLesson">
-          <label>
-            <input type="checkbox" [checked]="isWatched(lesson.id)" (change)="toggleWatched(lesson.id)" />
-            {{ lesson.title }}
-          </label>
-          <button [routerLink]="['/playlists', playlist.id, 'videos', lesson.id]">Assistir</button>
-        </li>
+        @for (lesson of module.lessons; track lesson.id) {
+          <li>
+            <label>
+              <input type="checkbox" [checked]="isWatched(lesson.id)" (change)="toggleWatched(lesson.id)" />
+              {{ lesson.title }}
+            </label>
+            <button [routerLink]="['/playlists', playlist()?.id, 'videos', lesson.id]">Assistir</button>
+          </li>
+        }
       </ul>
-    </div>
-  </ng-container>
+    }
+  }
 </div>

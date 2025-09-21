@@ -36,7 +36,7 @@ describe('PlaylistDetailComponent', () => {
   });
 
   it('should load playlist and mark watched state', () => {
-    expect(component.playlist).toBeTruthy();
+    expect(component.playlist()).toBeTruthy();
     expect(component.isWatched('l1')).toBeTrue();
   });
 });

@@ -51,9 +51,9 @@ describe('VideoComponent', () => {
   });
 
   it('should load youtubeId and call markAsWatched on ENDED', async () => {
-    expect(component.youtubeId).toBe('yt1');
+  expect(component.youtubeId()).toBe('yt1');
     // simulate stateChange ENDED
-    component.onStateChange({ data: 0 });
+  component.onStateChange({ data: 0 });
     // allow promise microtask
     await new Promise(resolve => setTimeout(resolve, 0));
     expect(persistenceSpy.markAsWatched).toHaveBeenCalledOnceWith(1, 'v1');

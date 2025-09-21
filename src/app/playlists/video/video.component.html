@@ -1,10 +1,10 @@
 <div class="video">
-  <ng-container *ngIf="!youtubeId">Vídeo não encontrado.</ng-container>
+  @if (!youtubeId()) { Vídeo não encontrado. }
 
-  <ng-container *ngIf="youtubeId">
-    <h2>{{ title }}</h2>
+  @if (youtubeId()) {
+    <h2>{{ title() }}</h2>
     <!-- Using angular/youtube-player in production; tests will stub this element -->
-    <youtube-player [videoId]="youtubeId" (stateChange)="onStateChange($event)"></youtube-player>
+    <youtube-player [videoId]="youtubeId()" (stateChange)="onStateChange($event)"></youtube-player>
     <button (click)="goBack()">Voltar à playlist</button>
-  </ng-container>
+  }
 </div>

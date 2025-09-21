@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,16 +21,16 @@ export class VideoComponent implements OnInit, OnDestroy {
   private persistence = inject(PersistenceService);
   private profileService = inject(ProfileService);
 
-  youtubeId?: string;
-  title?: string;
+  youtubeId = signal<string | undefined>(undefined);
+  title = signal<string | undefined>(undefined);
   playlistId?: string;
   videoId?: string;
 
   private subs = new Subscription();
 
   ngOnInit(): void {
-    this.playlistId = this.route.snapshot.paramMap.get('playlistId') || undefined;
-    this.videoId = this.route.snapshot.paramMap.get('videoId') || undefined;
+  this.playlistId = this.route.snapshot.paramMap.get('playlistId') || undefined;
+  this.videoId = this.route.snapshot.paramMap.get('videoId') || undefined;
 
     if (!this.playlistId || !this.videoId) {
       return;
@@ -42,8 +42,8 @@ export class VideoComponent implements OnInit, OnDestroy {
         // find lesson by videoId (lesson.id)
         const lesson = pl.modules?.flatMap(m => m.lessons || []).find(l => l.id === this.videoId);
         if (lesson) {
-          this.youtubeId = lesson.youtubeId;
-          this.title = lesson.title;
+          this.youtubeId.set(lesson.youtubeId);
+          this.title.set(lesson.title);
         }
       })
     );
