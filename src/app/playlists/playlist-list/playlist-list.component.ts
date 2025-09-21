@@ -73,7 +73,7 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
   }
 
   openPlaylist(playlist: Playlist): void {
-    this.router.navigate(['/playlist', playlist.id]);
+    this.router.navigate(['/playlists', playlist.id]);
   }
 
   ngOnDestroy(): void {
