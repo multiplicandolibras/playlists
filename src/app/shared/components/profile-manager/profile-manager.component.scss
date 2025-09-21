@@ -1,0 +1,23 @@
+.profile-manager {
+  padding: 16px;
+
+  .profile-list {
+    margin-top: 16px;
+
+    .profile-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+
+      span {
+        cursor: pointer;
+        &.active {
+          font-weight: bold;
+          color: #3f51b5; // Example active color
+        }
+      }
+    }
+  }
+}

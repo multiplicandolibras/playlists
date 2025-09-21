@@ -52,7 +52,19 @@ Este arquivo controla a execução manual e sequencial das partes do plano. Cada
         - `src/app/core/services/profile.service.ts` criado e implementado.
         - `src/app/core/services/profile.service.spec.ts` criado e implementado.
 
-- [ ] Parte 3.1 — ProfileManagerComponent (`@./parte-3-1-profile-manager.md`)
+- [x] Parte 3.1 — ProfileManagerComponent (`@./parte-3-1-profile-manager.md`)
+    - Status: concluido
+    - Iniciado-por: agent/runner-1
+    - Iniciado-em: 2025-09-21T19:00:00Z
+    - Autorizado-por: agent/automated-runner
+    - Concluido-por: agent/runner-1
+    - Concluido-em: 2025-09-21T19:05:00Z
+    - Notas-de-entrega:
+        - `src/app/shared/components/profile-manager/profile-manager.component.ts` criado e implementado.
+        - `src/app/shared/components/profile-manager/profile-manager.component.html` criado e implementado.
+        - `src/app/shared/components/profile-manager/profile-manager.component.scss` criado e implementado.
+        - `src/app/shared/components/profile-manager/profile-manager.component.spec.ts` criado e implementado.
+
 - [ ] Parte 3.2 — PlaylistListComponent (`@./parte-3-2-playlist-list.md`)
 - [ ] Parte 3.3 — PlaylistDetailComponent (`@./parte-3-3-playlist-detail.md`)
 - [ ] Parte 3.4 — VideoComponent (`@./parte-3-4-video.md`)
