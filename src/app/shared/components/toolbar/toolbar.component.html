@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <span class="app-title" (click)="goToHome()">Minha Aplicação de Playlists</span>
+
+  <span class="spacer"></span>
+
+  <div *ngIf="currentProfile">
+    <span>Perfil: {{ currentProfile.name }}</span>
+    <button mat-icon-button (click)="switchProfile()">
+      <mat-icon>swap_horiz</mat-icon>
+    </button>
+  </div>
+  <div *ngIf="!currentProfile">
+    <button mat-button (click)="switchProfile()">Selecionar Perfil</button>
+  </div>
+</mat-toolbar>
