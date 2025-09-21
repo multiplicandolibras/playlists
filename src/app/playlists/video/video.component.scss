@@ -1,0 +1,11 @@
+.video {
+  h2 {
+    margin-bottom: 12px;
+  }
+
+  youtube-player {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}
