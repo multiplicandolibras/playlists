@@ -99,10 +99,17 @@ Este arquivo controla a execução manual e sequencial das partes do plano. Cada
         - Template e estilos adicionados.
         - `src/app/playlists/video/video.component.spec.ts` criado e testes passaram.
 - [ ] Parte 4 — Roteamento (`@./parte-4-roteamento.md`)
-    - Status: em-execucao
+    - Status: concluido
     - Iniciado-por: agent/runner-1
     - Iniciado-em: 2025-09-21T19:50:00Z
     - Autorizado-por: agent/automated-runner
+    - Concluido-por: agent/runner-1
+    - Concluido-em: 2025-09-21T20:05:00Z
+    - Notas-de-entrega:
+        - `src/app/playlists/playlists.module.ts` criado.
+        - `src/app/playlists/playlists-routing.module.ts` criado.
+        - `src/app/app.routes.ts` atualizado com lazy-loading e wildcard.
+        - `src/app/playlists/playlists-routing.spec.ts` adicionado e testes passaram.
 - [ ] Parte 5 — Integração, Migrações e Recomendações (`@./parte-5-integracao-migracoes-recomendacoes.md`)
 
 Observações de uso
