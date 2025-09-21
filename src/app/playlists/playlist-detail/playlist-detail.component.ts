@@ -1,7 +1,6 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DataService } from '../../core/services/data.service';
 import { PersistenceService } from '../../core/services/persistence.service';
 import { Playlist } from '../../core/models/playlist.model';
@@ -18,6 +17,7 @@ export class PlaylistDetailComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private dataService = inject(DataService);
   private persistence = inject(PersistenceService);
+  private router = inject(Router);
 
   // signals
   playlist = signal<Playlist | undefined>(undefined);
@@ -74,6 +74,10 @@ export class PlaylistDetailComponent implements OnInit, OnDestroy {
       await this.persistence.markAsWatched(profileId, lessonId);
       this.watched.update(curr => [...curr, lessonId]);
     }
+  }
+
+  goBack(): void {
+    this.router.navigate(['/playlists']);
   }
 
   ngOnDestroy(): void {

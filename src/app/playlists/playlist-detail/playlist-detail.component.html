@@ -1,4 +1,5 @@
 <div class="playlist-detail">
+  <button (click)="goBack()">Voltar</button>
   @if (loading()) { Carregando playlist... }
 
   @if (!loading() && !playlist()) {
