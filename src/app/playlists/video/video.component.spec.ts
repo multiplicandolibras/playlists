@@ -6,9 +6,10 @@ import { PersistenceService } from '../../core/services/persistence.service';
 import { ProfileService } from '../../core/services/profile.service';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
 
-// Stub component for youtube-player
-@Component({ selector: 'youtube-player', template: '' })
+// Stub component for youtube-player (standalone so it can be imported)
+@Component({ selector: 'youtube-player', template: '', standalone: true })
 class YoutubeStub {
   @Input() videoId: string | undefined;
   @Output() stateChange = new EventEmitter<any>();
@@ -31,8 +32,7 @@ describe('VideoComponent', () => {
     persistenceSpy = { markAsWatched: jasmine.createSpy('markAsWatched').and.returnValue(Promise.resolve()) };
 
     await TestBed.configureTestingModule({
-      imports: [VideoComponent, RouterTestingModule.withRoutes([])],
-      declarations: [YoutubeStub],
+      imports: [VideoComponent, RouterTestingModule.withRoutes([]), YoutubeStub],
       providers: [
         { provide: DataService, useValue: { getPlaylistById: (id: string) => of(mockPlaylist) } },
         { provide: PersistenceService, useValue: persistenceSpy },
@@ -42,9 +42,9 @@ describe('VideoComponent', () => {
 
     fixture = TestBed.createComponent(VideoComponent);
     component = fixture.componentInstance;
-    // set route snapshot params by temporarily patching ActivatedRoute in the component's injector is complex; instead set fields directly
-    (component as any).playlistId = 'p1';
-    (component as any).videoId = 'v1';
+  // Provide route snapshot params via a fake ActivatedRoute
+  const fakeRoute = TestBed.inject(ActivatedRoute);
+  (fakeRoute as any).snapshot = { paramMap: { get: (k: string) => (k === 'playlistId' ? 'p1' : k === 'videoId' ? 'v1' : null) } };
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();

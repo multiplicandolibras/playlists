@@ -63,7 +63,7 @@ export class VideoComponent implements OnInit, OnDestroy {
 
   goBack(): void {
     if (this.playlistId) {
-      this.router.navigate(['/playlist', this.playlistId]);
+      this.router.navigate(['/playlists', this.playlistId]);
     }
   }
 

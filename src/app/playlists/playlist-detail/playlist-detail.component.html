@@ -15,6 +15,7 @@
             <input type="checkbox" [checked]="isWatched(lesson.id)" (change)="toggleWatched(lesson.id)" />
             {{ lesson.title }}
           </label>
+          <button [routerLink]="['/playlists', playlist.id, 'videos', lesson.id]">Assistir</button>
         </li>
       </ul>
     </div>

@@ -1,5 +1,6 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../core/services/data.service';
 import { PersistenceService } from '../../core/services/persistence.service';
@@ -9,7 +10,7 @@ import { Subscription, from } from 'rxjs';
 @Component({
   selector: 'app-playlist-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './playlist-detail.component.html',
   styleUrls: ['./playlist-detail.component.scss']
 })

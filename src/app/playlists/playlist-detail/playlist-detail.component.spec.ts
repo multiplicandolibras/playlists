@@ -1,4 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 import { PlaylistDetailComponent } from './playlist-detail.component';
 import { DataService } from '../../core/services/data.service';
 import { PersistenceService } from '../../core/services/persistence.service';
@@ -22,7 +23,8 @@ describe('PlaylistDetailComponent', () => {
       imports: [PlaylistDetailComponent, RouterTestingModule.withRoutes([])],
       providers: [
         { provide: DataService, useValue: { getPlaylistById: (id: string) => of(mockPlaylist) } },
-        { provide: PersistenceService, useValue: { getWatchedVideos: async (p: number) => ['l1'], markAsWatched: async () => {}, markAsUnwatched: async () => {} } }
+        { provide: PersistenceService, useValue: { getWatchedVideos: async (p: number) => ['l1'], markAsWatched: async () => {}, markAsUnwatched: async () => {} } },
+        { provide: ActivatedRoute, useValue: { snapshot: { paramMap: { get: (key: string) => key === 'id' ? 'p1' : null } } } }
       ]
     }).compileComponents();
 
