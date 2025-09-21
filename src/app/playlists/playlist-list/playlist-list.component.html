@@ -1,0 +1,27 @@
+<div class="playlist-list">
+  <ng-container *ngIf="loading">Carregando playlists...</ng-container>
+
+  <ng-container *ngIf="!loading && playlists.length === 0">
+    <p>Nenhuma playlist disponível</p>
+  </ng-container>
+
+  <ng-container *ngIf="!loading && playlists.length > 0">
+    <div class="grid">
+      <mat-card *ngFor="let p of playlists" class="card">
+        <mat-card-title>{{ p.title }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ p.description || '—' }}</p>
+          <mat-progress-bar mode="determinate" [value]="p.progress || 0"></mat-progress-bar>
+          <p class="progress-label">{{ p.progress ?? 0 }}% visto</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="openPlaylist(p)">Abrir</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!loading && !hasProfiles">
+    <p>Selecione ou crie um perfil para ver o progresso por playlist.</p>
+  </ng-container>
+</div>

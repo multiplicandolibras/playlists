@@ -1,0 +1,17 @@
+.playlist-list {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .progress-label {
+    font-size: 0.9rem;
+    margin-top: 4px;
+  }
+}

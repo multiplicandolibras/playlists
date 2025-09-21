@@ -65,7 +65,17 @@ Este arquivo controla a execução manual e sequencial das partes do plano. Cada
         - `src/app/shared/components/profile-manager/profile-manager.component.scss` criado e implementado.
         - `src/app/shared/components/profile-manager/profile-manager.component.spec.ts` criado e implementado.
 
-- [ ] Parte 3.2 — PlaylistListComponent (`@./parte-3-2-playlist-list.md`)
+- [x] Parte 3.2 — PlaylistListComponent (`@./parte-3-2-playlist-list.md`)
+    - Status: concluido
+    - Iniciado-por: GitHub Copilot
+    - Iniciado-em: 2025-09-21T19:05:01Z
+    - Autorizado-por: agent/automated-runner
+    - Concluido-por: GitHub Copilot
+    - Concluido-em: 2025-09-21T19:12:00Z
+    - Notas-de-entrega:
+        - `src/app/playlists/playlist-list/playlist-list.component.ts` criado e implementado.
+        - Template e estilos adicionados.
+        - `src/app/playlists/playlist-list/playlist-list.component.spec.ts` criado e testes passaram.
 - [ ] Parte 3.3 — PlaylistDetailComponent (`@./parte-3-3-playlist-detail.md`)
 - [ ] Parte 3.4 — VideoComponent (`@./parte-3-4-video.md`)
 - [ ] Parte 4 — Roteamento (`@./parte-4-roteamento.md`)
