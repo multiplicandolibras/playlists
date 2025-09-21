@@ -1,0 +1,18 @@
+{
+  "playlists": [
+    {
+      "id": "playlist-1",
+      "title": "Introdução à Playlist",
+      "modules": [
+        {
+          "id": "mod-1",
+          "title": "Módulo 1",
+          "lessons": [
+            { "id": "video-1", "title": "Vídeo 1", "youtubeId": "dQw4w9WgXcQ" },
+            { "id": "video-2", "title": "Vídeo 2", "youtubeId": "9bZkp7q19f0" }
+          ]
+        }
+      ]
+    }
+  ]
+}
