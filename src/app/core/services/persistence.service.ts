@@ -24,8 +24,8 @@ export class PersistenceService extends Dexie {
     return this.profiles.toArray();
   }
 
-  async addProfile(name: string): Promise<number> {
-    return this.profiles.add({ name });
+  async addProfile(profile: Profile): Promise<number> {
+    return this.profiles.add(profile);
   }
 
   async updateProfileName(profileId: number, newName: string): Promise<void> {

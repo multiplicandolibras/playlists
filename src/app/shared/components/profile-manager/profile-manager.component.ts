@@ -52,7 +52,12 @@ export class ProfileManagerComponent {
 
   async addProfile(): Promise<void> {
     if (this.newProfileName.trim()) {
-      await this.persistenceService.addProfile(this.newProfileName.trim());
+      const newProfile: Profile = {
+        name: this.newProfileName.trim(),
+        progress: {}
+      };
+      const newProfileId = await this.persistenceService.addProfile(newProfile);
+      await this.profileService.setActiveProfile(newProfileId);
       this.newProfileName = '';
       await this.loadProfiles();
     }
