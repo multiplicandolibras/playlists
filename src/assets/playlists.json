@@ -2,6 +2,7 @@
   {
     "id": "playlist-1",
     "title": "Dicas",
+    "description": "Dicas para intérpretes cristãos de Libras.",
     "modules": [
       {
         "id": "mod-1",
