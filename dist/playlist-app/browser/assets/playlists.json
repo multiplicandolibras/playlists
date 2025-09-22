@@ -1,0 +1,58 @@
+[
+  {
+    "id": "playlist-1",
+    "title": "Introdução à Playlist",
+    "modules": [
+      {
+        "id": "mod-1",
+        "title": "Módulo 1",
+        "lessons": [
+          { "id": "video-1", "title": "Vídeo 1", "youtubeId": "x8UAUAuKNcU" },
+          { "id": "video-2", "title": "Vídeo 2", "youtubeId": "tgbNymZ7vqY" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "playlist-2",
+    "title": "Avançando na Playlist",
+    "modules": [
+      {
+        "id": "mod-1",
+        "title": "Módulo 1",
+        "lessons": [
+          { "id": "video-1-1", "title": "Vídeo 1", "youtubeId": "JAUoeq94s_A" },
+          { "id": "video-1-2", "title": "Vídeo 2", "youtubeId": "duqlZXiIZqA" }
+        ]
+      }
+    ]
+  },
+   {
+    "id": "playlist-3",
+    "title": "Avançando na Playlist - Parte 2",
+    "modules": [
+      {
+        "id": "mod-1",
+        "title": "Módulo 1",
+        "lessons": [
+          { "id": "video-2-1", "title": "Vídeo 1", "youtubeId": "Znsa4Deavgg" },
+          { "id": "video-2-2", "title": "Vídeo 2", "youtubeId": "1s0-G_i3a-g" }
+        ]
+      }
+    ]
+  },
+   {
+    "id": "playlist-4",
+    "title": "Avançando na Playlist - Parte 3",
+    "modules": [
+      {
+        "id": "mod-1",
+        "title": "Módulo 1",
+        "lessons": [
+          { "id": "video-3-1", "title": "Vídeo 1", "youtubeId": "LembwKDo1Dk" },
+          { "id": "video-3-2", "title": "Vídeo 2", "youtubeId": "dQw4w9WgXcQ" }
+        ]
+      }
+    ]
+  }
+]
