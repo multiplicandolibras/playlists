@@ -2,8 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { VideoComponent } from './video.component';
 import { DataService } from '../../core/services/data.service';
-import { PersistenceService } from '../../core/services/persistence.service';
-import { ProfileService } from '../../core/services/profile.service';
+import { ProgressService } from '../../core/services/progress.service';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +17,7 @@ class YoutubeStub {
 describe('VideoComponent', () => {
   let fixture: ComponentFixture<VideoComponent>;
   let component: VideoComponent;
-  let persistenceSpy: any;
+  let progressServiceSpy: any;
 
   const mockPlaylist = {
     id: 'p1',
@@ -29,33 +28,32 @@ describe('VideoComponent', () => {
   };
 
   beforeEach(async () => {
-    persistenceSpy = { markAsWatched: jasmine.createSpy('markAsWatched').and.returnValue(Promise.resolve()) };
+    progressServiceSpy = { markAsWatched: jasmine.createSpy('markAsWatched').and.returnValue(Promise.resolve()) };
 
     await TestBed.configureTestingModule({
       imports: [VideoComponent, RouterTestingModule.withRoutes([]), YoutubeStub],
       providers: [
         { provide: DataService, useValue: { getPlaylistById: (id: string) => of(mockPlaylist) } },
-        { provide: PersistenceService, useValue: persistenceSpy },
-        { provide: ProfileService, useValue: { currentProfile: { id: 1, name: 'Test' } } }
+        { provide: ProgressService, useValue: progressServiceSpy }
       ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(VideoComponent);
     component = fixture.componentInstance;
-  // Provide route snapshot params via a fake ActivatedRoute
-  const fakeRoute = TestBed.inject(ActivatedRoute);
-  (fakeRoute as any).snapshot = { paramMap: { get: (k: string) => (k === 'playlistId' ? 'p1' : k === 'videoId' ? 'v1' : null) } };
+    // Provide route snapshot params via a fake ActivatedRoute
+    const fakeRoute = TestBed.inject(ActivatedRoute);
+    (fakeRoute as any).snapshot = { paramMap: { get: (k: string) => (k === 'playlistId' ? 'p1' : k === 'videoId' ? 'v1' : null) } };
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();
   });
 
   it('should load youtubeId and call markAsWatched on ENDED', async () => {
-  expect(component.youtubeId()).toBe('yt1');
+    expect(component.youtubeId()).toBe('yt1');
     // simulate stateChange ENDED
-  component.onStateChange({ data: 0 });
+    component.onStateChange({ data: 0 });
     // allow promise microtask
     await new Promise(resolve => setTimeout(resolve, 0));
-    expect(persistenceSpy.markAsWatched).toHaveBeenCalledOnceWith(1, 'v1');
+    expect(progressServiceSpy.markAsWatched).toHaveBeenCalledOnceWith('v1');
   });
 });

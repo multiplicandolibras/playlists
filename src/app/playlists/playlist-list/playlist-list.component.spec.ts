@@ -1,8 +1,7 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { PlaylistListComponent } from './playlist-list.component';
 import { DataService } from '../../core/services/data.service';
-import { ProfileService } from '../../core/services/profile.service';
-import { PersistenceService } from '../../core/services/persistence.service';
+import { ProgressService } from '../../core/services/progress.service';
 import { of } from 'rxjs';
 import { Playlist } from '../../core/models/playlist.model';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -31,12 +30,8 @@ describe('PlaylistListComponent', () => {
           useValue: { getPlaylists: () => of(mockPlaylists) }
         },
         {
-          provide: ProfileService,
-          useValue: { getActiveProfile: () => of({ id: 1, name: 'Test' }) }
-        },
-        {
-          provide: PersistenceService,
-          useValue: { getWatchedVideos: async (profileId: number) => ['l1'] }
+          provide: ProgressService,
+          useValue: { getWatchedVideos: () => of(['l1']) }
         }
       ]
     }).compileComponents();

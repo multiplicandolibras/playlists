@@ -54,42 +54,32 @@
   },
   {
     "id": "playlist-2",
-    "title": "Avançando na Playlist",
+    "title": "Músicas em libras",
+    "description": "Aprenda a interpretar músicas em Libras com estas aulas.",
     "modules": [
       {
         "id": "mod-1",
-        "title": "Módulo 1",
+        "title": null,
         "lessons": [
-          { "id": "video-1-1", "title": "Vídeo 1", "youtubeId": "JAUoeq94s_A" },
-          { "id": "video-1-2", "title": "Vídeo 2", "youtubeId": "duqlZXiIZqA" }
+          { "id": "video-1-1", "title": "A paz é uma promessa", "youtubeId": "mEXzURYKP5o" },
+          { "id": "video-1-2", "title": "Nosso Deus é poderoso", "youtubeId": "gj1sCdMzgr8" },
+          { "id": "video-1-3", "title": "Vitorioso és", "youtubeId": "s3Dg85sK5cc" }
         ]
       }
     ]
   },
   {
     "id": "playlist-3",
-    "title": "Avançando na Playlist - Parte 2",
+    "title": "Interpretação em eventos",
+    "description": "Dicas para interpretação em eventos como casamentos, cultos e conferências.",
     "modules": [
       {
         "id": "mod-1",
-        "title": "Módulo 1",
+        "title": null,
         "lessons": [
-          { "id": "video-2-1", "title": "Vídeo 1", "youtubeId": "Znsa4Deavgg" },
-          { "id": "video-2-2", "title": "Vídeo 2", "youtubeId": "1s0-G_i3a-g" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "playlist-4",
-    "title": "Avançando na Playlist - Parte 3",
-    "modules": [
-      {
-        "id": "mod-1",
-        "title": "Módulo 1",
-        "lessons": [
-          { "id": "video-3-1", "title": "Vídeo 1", "youtubeId": "LembwKDo1Dk" },
-          { "id": "video-3-2", "title": "Vídeo 2", "youtubeId": "dQw4w9WgXcQ" }
+          { "id": "video-1-1", "title": "Interpretação em casamentos", "youtubeId": "X2bX4YkG6jA" },
+          { "id": "video-1-2", "title": "Interpretação em cultos", "youtubeId": "Y7JHk9vZ3mE" },
+          { "id": "video-1-3", "title": "Interpretação em conferências", "youtubeId": "L5t8FzW9nKQ" }
         ]
       }
     ]
