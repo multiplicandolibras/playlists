@@ -38,9 +38,9 @@ export class VideoComponent implements OnInit, OnDestroy {
     this.subs.add(
       this.dataService.getPlaylistById(this.playlistId).subscribe(pl => {
         if (!pl) return;
-        const lesson = pl.modules?.flatMap(m => m.lessons || []).find(l => l.youtubeId === youtubeId);
-        if (lesson) {
-          this.title.set(lesson.title);
+        const video = pl.modules?.flatMap(m => m.videos || []).find(v => v.youtubeId === youtubeId);
+        if (video) {
+          this.title.set(video.title);
         }
       })
     );

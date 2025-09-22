@@ -2,7 +2,7 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { PlaylistDetailComponent } from './playlist-detail.component';
 import { DataService } from '../../core/services/data.service';
-import { PersistenceService } from '../../core/services/persistence.service';
+import { ProgressService } from '../../core/services/progress.service';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -14,7 +14,7 @@ describe('PlaylistDetailComponent', () => {
     id: 'p1',
     title: 'P1',
     modules: [
-      { id: 'm1', title: 'M1', lessons: [{ id: 'l1', title: 'L1', youtubeId: 'y1' }] }
+      { id: 'm1', title: 'M1', videos: [{ title: 'L1', youtubeId: 'y1' }] }
     ]
   };
 
@@ -22,9 +22,18 @@ describe('PlaylistDetailComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PlaylistDetailComponent, RouterTestingModule.withRoutes([])],
       providers: [
-        { provide: DataService, useValue: { getPlaylistById: (id: string) => of(mockPlaylist) } },
-        { provide: PersistenceService, useValue: { getWatchedVideos: async (p: number) => ['l1'], markAsWatched: async () => {}, markAsUnwatched: async () => {} } },
-        { provide: ActivatedRoute, useValue: { snapshot: { paramMap: { get: (key: string) => key === 'id' ? 'p1' : null } } } }
+        {
+          provide: DataService,
+          useValue: { getPlaylistById: (id: string) => of(mockPlaylist) }
+        },
+        {
+          provide: ProgressService,
+          useValue: { getWatchedVideos: () => of(['y1']), markAsWatched: async () => {}, markAsUnwatched: async () => {} }
+        },
+        {
+          provide: ActivatedRoute,
+          useValue: { snapshot: { paramMap: { get: (key: string) => key === 'id' ? 'p1' : null } } }
+        }
       ]
     }).compileComponents();
 
@@ -37,6 +46,6 @@ describe('PlaylistDetailComponent', () => {
 
   it('should load playlist and mark watched state', () => {
     expect(component.playlist()).toBeTruthy();
-    expect(component.isWatched('l1')).toBeTrue();
+    expect(component.isWatched('y1')).toBeTrue();
   });
 });

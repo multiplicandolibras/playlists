@@ -16,7 +16,7 @@ describe('PlaylistListComponent', () => {
       title: 'Playlist 1',
       description: 'Desc',
       modules: [
-        { id: 'm1', title: 'M1', lessons: [{ title: 'L1', youtubeId: 'y1' }] }
+        { id: 'm1', title: 'M1', videos: [{ title: 'L1', youtubeId: 'y1' }] }
       ]
     }
   ];

@@ -1,4 +1,4 @@
-export interface Lesson {
+export interface Video {
   title: string;
   youtubeId: string;
 }
@@ -6,7 +6,7 @@ export interface Lesson {
 export interface Module {
   id: string;
   title: string;
-  lessons: Lesson[];
+  videos: Video[];
 }
 
 export interface Playlist {

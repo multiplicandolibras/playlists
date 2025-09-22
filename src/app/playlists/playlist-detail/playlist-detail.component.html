@@ -11,13 +11,13 @@
   @for (module of playlist()?.modules; track module.title) {
       <h3>{{ module.title }}</h3>
       <ul>
-        @for (lesson of module.lessons; track lesson.youtubeId) {
+        @for (video of module.videos; track video.youtubeId) {
           <li>
             <label>
-              <input type="checkbox" [checked]="isWatched(lesson.youtubeId)" (change)="toggleWatched(lesson.youtubeId)" />
-              {{ lesson.title }}
+              <input type="checkbox" [checked]="isWatched(video.youtubeId)" (change)="toggleWatched(video.youtubeId)" />
+              {{ video.title }}
             </label>
-            <button [routerLink]="['/playlists', playlist()?.id, 'videos', lesson.youtubeId]">Assistir</button>
+            <button [routerLink]="['/playlists', playlist()?.id, 'videos', video.youtubeId]">Assistir</button>
           </li>
         }
       </ul>

@@ -23,7 +23,7 @@ describe('VideoComponent', () => {
     id: 'p1',
     title: 'P1',
     modules: [
-      { id: 'm1', title: 'M1', lessons: [{ title: 'V1', youtubeId: 'yt1' }] }
+      { id: 'm1', title: 'M1', videos: [{ title: 'V1', youtubeId: 'yt1' }] }
     ]
   };
 

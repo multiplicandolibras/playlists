@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DataService } from '../../core/services/data.service';
 import { ProgressService } from '../../core/services/progress.service';
-import { Playlist, Lesson } from '../../core/models/playlist.model';
+import { Playlist, Video } from '../../core/models/playlist.model';
 import { Subscription, combineLatest } from 'rxjs';
 
 @Component({
@@ -54,8 +54,8 @@ export class PlaylistDetailComponent implements OnInit, OnDestroy {
     return module?.id;
   }
 
-  trackByLesson(index: number, lesson: Lesson): string {
-    return lesson.youtubeId;
+  trackByLesson(index: number, video: Video): string {
+    return video.youtubeId;
   }
 
   async toggleWatched(youtubeId: string): Promise<void> {
