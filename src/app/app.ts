@@ -11,5 +11,4 @@ import { ToolbarComponent } from './shared/components/toolbar/toolbar.component'
   styleUrls: ['./app.scss']
 })
 export class App {
-  protected readonly title = signal('playlist-app');
 }

@@ -1,14 +1,52 @@
 [
   {
     "id": "playlist-1",
-    "title": "Introdução à Playlist",
+    "title": "Dicas",
     "modules": [
       {
         "id": "mod-1",
-        "title": "Módulo 1",
+        "title": "Dicas Essenciais para Intérpretes Cristãos de Libras",
         "lessons": [
-          { "id": "video-1", "title": "Vídeo 1", "youtubeId": "x8UAUAuKNcU" },
-          { "id": "video-2", "title": "Vídeo 2", "youtubeId": "tgbNymZ7vqY" }
+          {
+            "id": "video-1",
+            "title": "5 dicas para se tornar um intérprete cristão melhor",
+            "youtubeId": "H_JznWF1lsQ"
+          },
+          {
+            "id": "video-2",
+            "title": "Como aprender Libras e ser intérprete - Multiplicando Libras",
+            "youtubeId": "W2XJjQtEtIc"
+          },
+          {
+            "id": "video-3",
+            "title": "Entendendo a oração na interpretação - Multiplicando Libras",
+            "youtubeId": "jJLwhqRMguI"
+          },
+          {
+            "id": "video-4",
+            "title": "O estudo e a preparação do intérprete - Multiplicando Libras",
+            "youtubeId": "_iAiq9Lv0OI"
+          },
+          {
+            "id": "video-5",
+            "title": "A importância do esboço da pregação para o intérprete - Multiplicando Libras",
+            "youtubeId": "_w6RxdUZrkk"
+          },
+          {
+            "id": "video-6",
+            "title": "Revezamento na interpretação - cuide da sua mente - Multiplicando Libras",
+            "youtubeId": "Ur9Xq4UJIMI"
+          },
+          {
+            "id": "video-7",
+            "title": "Humildade no trabalho do intérprete - exemplo de Jesus - Multiplicando Libras",
+            "youtubeId": "ZOdsxbUXo9Q"
+          },
+          {
+            "id": "video-8",
+            "title": "Conclusão e dicas finais para intérpretes cristãos - Multiplicando Libras",
+            "youtubeId": "mHFj6Cocbto"
+          }
         ]
       }
     ]
@@ -27,7 +65,7 @@
       }
     ]
   },
-   {
+  {
     "id": "playlist-3",
     "title": "Avançando na Playlist - Parte 2",
     "modules": [
@@ -41,7 +79,7 @@
       }
     ]
   },
-   {
+  {
     "id": "playlist-4",
     "title": "Avançando na Playlist - Parte 3",
     "modules": [
