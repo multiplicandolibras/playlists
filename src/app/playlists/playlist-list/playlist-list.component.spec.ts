@@ -46,7 +46,7 @@ describe('PlaylistListComponent', () => {
   it('should create and display playlist', () => {
     expect(component).toBeTruthy();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.card mat-card-title')?.textContent).toContain('Playlist 1');
+    expect(compiled.querySelector('.card h3')?.textContent).toContain('Playlist 1');
     expect(compiled.querySelector('.progress-label')?.textContent).toContain('100%');
   });
 });

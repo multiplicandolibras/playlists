@@ -6,14 +6,11 @@ import { Playlist } from '../../core/models/playlist.model';
 import { Subscription, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RouterModule, Router } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-playlist-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatCardModule, MatButtonModule, MatProgressBarModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './playlist-list.component.html',
   styleUrls: ['./playlist-list.component.scss'],
 })

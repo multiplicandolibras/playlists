@@ -8,17 +8,17 @@
   @if (!loading && playlists.length > 0) {
     <div class="grid">
       @for (p of playlists; track p.id) {
-        <mat-card class="card">
-          <mat-card-title>{{ p.title }}</mat-card-title>
-          <mat-card-content>
+        <div class="card">
+          <h3>{{ p.title }}</h3>
+          <div class="card-content">
             <p>{{ p.description || '—' }}</p>
-            <mat-progress-bar mode="determinate" [value]="p.progress || 0"></mat-progress-bar>
+            <progress [value]="p.progress || 0" max="100"></progress>
             <p class="progress-label">{{ p.progress ?? 0 }}% visto</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button (click)="openPlaylist(p)">Abrir</button>
-          </mat-card-actions>
-        </mat-card>
+          </div>
+          <div class="card-actions">
+            <button (click)="openPlaylist(p)">Abrir</button>
+          </div>
+        </div>
       }
     </div>
   }
