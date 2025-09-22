@@ -19,13 +19,13 @@ describe('PersistenceService', () => {
 
   describe('Progress', () => {
     it('should mark a video as watched and get watched videos', async () => {
-      (service.progress.toArray as jasmine.Spy).and.returnValue(Promise.resolve([{ videoId: 'video1' }]));
+      (service.progress.toArray as jasmine.Spy).and.returnValue(Promise.resolve([{ youtubeId: 'video1' }]));
       (service.progress.add as jasmine.Spy).and.returnValue(Promise.resolve());
 
       await service.markAsWatched('video1');
       const watched = await service.getWatchedVideos();
 
-      expect(service.progress.add).toHaveBeenCalledWith({ videoId: 'video1', watchedAt: jasmine.any(Number) });
+      expect(service.progress.add).toHaveBeenCalledWith({ youtubeId: 'video1', watchedAt: jasmine.any(Number) });
       expect(watched.length).toBe(1);
       expect(watched[0]).toBe('video1');
     });
@@ -39,7 +39,7 @@ describe('PersistenceService', () => {
 
       await service.markAsUnwatched('video1');
 
-      expect(service.progress.where).toHaveBeenCalledWith({ videoId: 'video1' });
+      expect(service.progress.where).toHaveBeenCalledWith({ youtubeId: 'video1' });
       expect(service.progress.delete).toHaveBeenCalledWith(1);
     });
   });

@@ -9,42 +9,34 @@
         "title": "Dicas Essenciais para Intérpretes Cristãos de Libras",
         "lessons": [
           {
-            "id": "video-1",
             "title": "5 dicas para se tornar um intérprete cristão melhor",
             "youtubeId": "H_JznWF1lsQ"
           },
           {
-            "id": "video-2",
             "title": "Como aprender Libras e ser intérprete - Multiplicando Libras",
             "youtubeId": "W2XJjQtEtIc"
           },
           {
-            "id": "video-3",
             "title": "Entendendo a oração na interpretação - Multiplicando Libras",
             "youtubeId": "jJLwhqRMguI"
           },
           {
-            "id": "video-4",
             "title": "O estudo e a preparação do intérprete - Multiplicando Libras",
             "youtubeId": "_iAiq9Lv0OI"
           },
           {
-            "id": "video-5",
             "title": "A importância do esboço da pregação para o intérprete - Multiplicando Libras",
             "youtubeId": "_w6RxdUZrkk"
           },
           {
-            "id": "video-6",
             "title": "Revezamento na interpretação - cuide da sua mente - Multiplicando Libras",
             "youtubeId": "Ur9Xq4UJIMI"
           },
           {
-            "id": "video-7",
             "title": "Humildade no trabalho do intérprete - exemplo de Jesus - Multiplicando Libras",
             "youtubeId": "ZOdsxbUXo9Q"
           },
           {
-            "id": "video-8",
             "title": "Conclusão e dicas finais para intérpretes cristãos - Multiplicando Libras",
             "youtubeId": "mHFj6Cocbto"
           }
@@ -61,9 +53,9 @@
         "id": "mod-1",
         "title": null,
         "lessons": [
-          { "id": "video-1-1", "title": "A paz é uma promessa", "youtubeId": "mEXzURYKP5o" },
-          { "id": "video-1-2", "title": "Nosso Deus é poderoso", "youtubeId": "gj1sCdMzgr8" },
-          { "id": "video-1-3", "title": "Vitorioso és", "youtubeId": "s3Dg85sK5cc" }
+          { "title": "A paz é uma promessa", "youtubeId": "mEXzURYKP5o" },
+          { "title": "Nosso Deus é poderoso", "youtubeId": "gj1sCdMzgr8" },
+          { "title": "Vitorioso és", "youtubeId": "s3Dg85sK5cc" }
         ]
       }
     ]
@@ -77,9 +69,9 @@
         "id": "mod-1",
         "title": null,
         "lessons": [
-          { "id": "video-1-1", "title": "Interpretação em casamentos", "youtubeId": "X2bX4YkG6jA" },
-          { "id": "video-1-2", "title": "Interpretação em cultos", "youtubeId": "Y7JHk9vZ3mE" },
-          { "id": "video-1-3", "title": "Interpretação em conferências", "youtubeId": "L5t8FzW9nKQ" }
+          { "title": "Interpretação em casamentos", "youtubeId": "X2bX4YkG6jA" },
+          { "title": "Interpretação em cultos", "youtubeId": "Y7JHk9vZ3mE" },
+          { "title": "Interpretação em conferências", "youtubeId": "L5t8FzW9nKQ" }
         ]
       }
     ]

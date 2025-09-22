@@ -1,5 +1,5 @@
 export interface Progress {
   id?: number;
-  videoId: string;
+  youtubeId: string;
   watchedAt: number;
 }

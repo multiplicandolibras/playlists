@@ -23,21 +23,21 @@ export class ProgressService {
     return this.watchedVideosSubject.asObservable();
   }
 
-  async markAsWatched(videoId: string): Promise<void> {
-    await this.persistenceService.markAsWatched(videoId);
+  async markAsWatched(youtubeId: string): Promise<void> {
+    await this.persistenceService.markAsWatched(youtubeId);
     const watchedVideos = await this.persistenceService.getWatchedVideos();
     this.watchedVideosSubject.next(watchedVideos);
   }
 
-  async markAsUnwatched(videoId: string): Promise<void> {
-    await this.persistenceService.markAsUnwatched(videoId);
+  async markAsUnwatched(youtubeId: string): Promise<void> {
+    await this.persistenceService.markAsUnwatched(youtubeId);
     const watchedVideos = await this.persistenceService.getWatchedVideos();
     this.watchedVideosSubject.next(watchedVideos);
   }
 
-  isWatched(videoId: string): Observable<boolean> {
+  isWatched(youtubeId: string): Observable<boolean> {
     return this.watchedVideosSubject.pipe(
-      map(watchedVideos => watchedVideos.includes(videoId))
+      map(watchedVideos => watchedVideos.includes(youtubeId))
     );
   }
 }

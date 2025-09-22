@@ -16,7 +16,7 @@ describe('PlaylistListComponent', () => {
       title: 'Playlist 1',
       description: 'Desc',
       modules: [
-        { id: 'm1', title: 'M1', lessons: [{ id: 'l1', title: 'L1', youtubeId: 'y1' }] }
+        { id: 'm1', title: 'M1', lessons: [{ title: 'L1', youtubeId: 'y1' }] }
       ]
     }
   ];
@@ -31,7 +31,7 @@ describe('PlaylistListComponent', () => {
         },
         {
           provide: ProgressService,
-          useValue: { getWatchedVideos: () => of(['l1']) }
+          useValue: { getWatchedVideos: () => of(['y1']) }
         }
       ]
     }).compileComponents();

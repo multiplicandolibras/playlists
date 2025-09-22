@@ -46,7 +46,7 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
                 p.modules?.reduce((acc, m) => acc + (m.lessons?.length || 0), 0) || 0;
               const seen =
                 p.modules
-                  ?.flatMap((m) => m.lessons?.map((l) => l.id) || [])
+                  ?.flatMap((m) => m.lessons?.map((l) => l.youtubeId) || [])
                   .filter((id) => watchedIds.includes(id)) || [];
               const progress =
                 totalLessons === 0 ? 0 : Math.round((seen.length / totalLessons) * 100);

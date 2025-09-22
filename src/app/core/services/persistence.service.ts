@@ -10,6 +10,14 @@ export class PersistenceService extends Dexie {
 
   constructor() {
     super('PlaylistsDB');
+    this.version(3).stores({
+      progress: '++id, youtubeId, watchedAt'
+    }).upgrade(tx => {
+      return tx.table('progress').toCollection().modify(p => {
+        p.youtubeId = p.videoId;
+        delete p.videoId;
+      });
+    });
     this.version(2).stores({
       progress: '++id, videoId, watchedAt'
     }).upgrade(tx => {
@@ -17,20 +25,24 @@ export class PersistenceService extends Dexie {
         delete p.profileId;
       });
     });
+    this.version(1).stores({
+      profiles: '++id, name',
+      progress: '++id, profileId, videoId, watchedAt'
+    });
     this.progress = this.table('progress');
   }
 
   async getWatchedVideos(): Promise<string[]> {
     const watchedItems = await this.progress.toArray();
-    return watchedItems.map(item => item.videoId);
+    return watchedItems.map(item => item.youtubeId);
   }
 
-  async markAsWatched(videoId: string): Promise<void> {
-    await this.progress.add({ videoId, watchedAt: Date.now() });
+  async markAsWatched(youtubeId: string): Promise<void> {
+    await this.progress.add({ youtubeId, watchedAt: Date.now() });
   }
 
-  async markAsUnwatched(videoId: string): Promise<void> {
-    const record = await this.progress.where({ videoId }).first();
+  async markAsUnwatched(youtubeId: string): Promise<void> {
+    const record = await this.progress.where({ youtubeId }).first();
     if (record) {
       await this.progress.delete(record.id!);
     }

@@ -22,25 +22,24 @@ export class VideoComponent implements OnInit, OnDestroy {
   youtubeId = signal<string | undefined>(undefined);
   title = signal<string | undefined>(undefined);
   playlistId?: string;
-  videoId?: string;
 
   private subs = new Subscription();
 
   ngOnInit(): void {
     this.playlistId = this.route.snapshot.paramMap.get('playlistId') || undefined;
-    this.videoId = this.route.snapshot.paramMap.get('videoId') || undefined;
+    const youtubeId = this.route.snapshot.paramMap.get('videoId') || undefined;
 
-    if (!this.playlistId || !this.videoId) {
+    if (!this.playlistId || !youtubeId) {
       return;
     }
+
+    this.youtubeId.set(youtubeId);
 
     this.subs.add(
       this.dataService.getPlaylistById(this.playlistId).subscribe(pl => {
         if (!pl) return;
-        // find lesson by videoId (lesson.id)
-        const lesson = pl.modules?.flatMap(m => m.lessons || []).find(l => l.id === this.videoId);
+        const lesson = pl.modules?.flatMap(m => m.lessons || []).find(l => l.youtubeId === youtubeId);
         if (lesson) {
-          this.youtubeId.set(lesson.youtubeId);
           this.title.set(lesson.title);
         }
       })
@@ -50,8 +49,9 @@ export class VideoComponent implements OnInit, OnDestroy {
   onStateChange(event: any): void {
     // YT.PlayerState.ENDED === 0
     if (event?.data === 0) {
-      if (this.videoId) {
-        this.progressService.markAsWatched(this.videoId).catch(() => {
+      const youtubeId = this.youtubeId();
+      if (youtubeId) {
+        this.progressService.markAsWatched(youtubeId).catch(() => {
           // error handling can be added
         });
       }

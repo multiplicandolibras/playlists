@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DataService } from '../../core/services/data.service';
 import { ProgressService } from '../../core/services/progress.service';
-import { Playlist } from '../../core/models/playlist.model';
+import { Playlist, Lesson } from '../../core/models/playlist.model';
 import { Subscription, combineLatest } from 'rxjs';
 
 @Component({
@@ -45,8 +45,8 @@ export class PlaylistDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  isWatched(lessonId: string): boolean {
-    return this.watched().includes(lessonId);
+  isWatched(youtubeId: string): boolean {
+    return this.watched().includes(youtubeId);
   }
 
   // trackBy functions for ngFor performance
@@ -54,15 +54,15 @@ export class PlaylistDetailComponent implements OnInit, OnDestroy {
     return module?.id;
   }
 
-  trackByLesson(index: number, lesson: { id: string }): string {
-    return lesson?.id;
+  trackByLesson(index: number, lesson: Lesson): string {
+    return lesson.youtubeId;
   }
 
-  async toggleWatched(lessonId: string): Promise<void> {
-    if (this.isWatched(lessonId)) {
-      await this.progressService.markAsUnwatched(lessonId);
+  async toggleWatched(youtubeId: string): Promise<void> {
+    if (this.isWatched(youtubeId)) {
+      await this.progressService.markAsUnwatched(youtubeId);
     } else {
-      await this.progressService.markAsWatched(lessonId);
+      await this.progressService.markAsWatched(youtubeId);
     }
   }
 

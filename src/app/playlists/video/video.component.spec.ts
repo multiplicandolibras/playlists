@@ -23,7 +23,7 @@ describe('VideoComponent', () => {
     id: 'p1',
     title: 'P1',
     modules: [
-      { id: 'm1', title: 'M1', lessons: [{ id: 'v1', title: 'V1', youtubeId: 'yt1' }] }
+      { id: 'm1', title: 'M1', lessons: [{ title: 'V1', youtubeId: 'yt1' }] }
     ]
   };
 
@@ -42,7 +42,7 @@ describe('VideoComponent', () => {
     component = fixture.componentInstance;
     // Provide route snapshot params via a fake ActivatedRoute
     const fakeRoute = TestBed.inject(ActivatedRoute);
-    (fakeRoute as any).snapshot = { paramMap: { get: (k: string) => (k === 'playlistId' ? 'p1' : k === 'videoId' ? 'v1' : null) } };
+    (fakeRoute as any).snapshot = { paramMap: { get: (k: string) => (k === 'playlistId' ? 'p1' : k === 'videoId' ? 'yt1' : null) } };
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();
@@ -54,6 +54,6 @@ describe('VideoComponent', () => {
     component.onStateChange({ data: 0 });
     // allow promise microtask
     await new Promise(resolve => setTimeout(resolve, 0));
-    expect(progressServiceSpy.markAsWatched).toHaveBeenCalledOnceWith('v1');
+    expect(progressServiceSpy.markAsWatched).toHaveBeenCalledOnceWith('yt1');
   });
 });
